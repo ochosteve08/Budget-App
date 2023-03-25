@@ -1,10 +1,11 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
-  budget: 2000,
+  budget: 3000,
   expenses: [
-    { id: 12, name: "shopping", cost: 40 },
-    { id: 12, name: "holiday", cost: 140 },
+    { id:1, name: "shopping", cost: 40 },
+    {id:2,  name: "holiday", cost: 140 },
+    { id:3, name: "tickets", cost: 100 },
   ],
 };
 
@@ -12,6 +13,18 @@ export const AppContext = createContext();
 
 const AppReducer = (state, action) => {
   switch (action.type) {
+    case 'ADD EXPENSE':
+      return {
+        ...state, 
+        expenses: [...state.expenses, action.payload],};
+
+        case 'DELETE EXPENSE':
+        return {
+           ...state,
+           expenses: state.expenses.filter(expense =>expense.id !== action.payload)
+
+        }
+
     default:
       return state;
   }
@@ -19,6 +32,7 @@ const AppReducer = (state, action) => {
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+  // console.log(state.expenses)
 
   return (
     <AppContext.Provider
