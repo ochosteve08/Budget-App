@@ -1,20 +1,39 @@
-import {React, useContext} from 'react'
-import { AppContext } from '../Context/AppContext'
+import { React, useContext, useState } from "react";
+import { AppContext } from "../Context/AppContext";
 
 const Budget = () => {
+  const { budget, dispatch } = useContext(AppContext);
+  const [editBudget, setEditBudget] = useState(budget);
+  const [changeDetail, setChangeDetail] = useState(false);
 
-  const {budget} = useContext(AppContext);
+  const handleEdit = () => {
+    setChangeDetail(!changeDetail);
+    
+    let budget = editBudget;
+  
 
-
+    dispatch({
+      type: "EDIT BUDGET",
+      payload: budget,
+    });
+  };
 
   return (
-    <div className="alert alert-secondary  d-flex justify-content-between align-items-center">
-      <span> Budget: ${budget}</span>
-      <button type="submit" className="btn btn-primary ">
+    <div className="alert alert-secondary  d-flex  align-items-center height">
+      <div >
+        < >Budget: $</>
+       <input
+          className="budget "
+          value={editBudget}
+          disabled={!changeDetail}
+          onChange={(event) => setEditBudget(event.target.value)}
+        />
+      </div>
+      <button onClick={handleEdit} type="submit" className="btn btn-primary ">
         Edit
       </button>
     </div>
   );
-}
+};
 
-export default Budget
+export default Budget;

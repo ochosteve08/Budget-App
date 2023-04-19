@@ -19,7 +19,7 @@ const ExpenseItem = ({id,name,cost}) => {
 
     
   return (
-    <li key={id} className="list-group-item  d-flex justify-content-between align-items-center  ">
+    <li key={id} className="list-group-item  d-flex justify-content-between align-items-center mb-4 ">
       {name}
       <div>
         <span className="badge bg-primary badge-pill m-2 mx-5">${cost}</span>
