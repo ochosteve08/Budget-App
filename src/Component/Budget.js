@@ -24,13 +24,14 @@ const Budget = () => {
         < >Budget: $</>
        <input
           className="budget "
+          type="number"
           value={editBudget}
           disabled={!changeDetail}
           onChange={(event) => setEditBudget(event.target.value)}
         />
       </div>
       <button onClick={handleEdit} type="submit" className="btn btn-primary ">
-        Edit
+       {changeDetail? "Save" : "Edit" }
       </button>
     </div>
   );

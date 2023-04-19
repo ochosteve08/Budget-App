@@ -28,7 +28,7 @@ const AddExpense = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="row">
+      <div className="row mb-2">
         <div className="col-sm-3">
           <label htmlFor="expense" className="mb-2">
             Name
@@ -49,7 +49,7 @@ const AddExpense = () => {
           </label>
           <input
             name="expense"
-            type="text"
+            type="number"
             className="form-control"
             id="cost"
             value={cost}

@@ -13,7 +13,7 @@ import {AppProvider} from './Context/AppContext'
 function App() {
   return (
     <AppProvider>
-      <div className="container">
+      <div className="container mb-3">
         <div className="mt-3">
           <Title title={"My Budget Planner"} />
         </div>
