@@ -40,7 +40,7 @@ const AppReducer = (state, action) => {
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  // console.log(state.expenses)
+
 
   return (
     <AppContext.Provider
