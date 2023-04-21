@@ -1,11 +1,14 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
-const initialState = {
+const savedState = JSON.parse(localStorage.getItem("my-app-data"));
+console.log(savedState);
+
+export const initialState = savedState || {
   budget: 3000,
   expenses: [
-    { id:1, name: "shopping", cost: 40 },
-    { id:2,  name: "holiday", cost: 140},
-    { id:3, name: "tickets", cost: 100 },
+    { id: 1, name: "shopping", cost: 40 },
+    { id: 2, name: "holiday", cost: 140 },
+    { id: 3, name: "tickets", cost: 100 },
   ],
 };
 
@@ -33,6 +36,8 @@ const AppReducer = (state, action) => {
         ),
       };
 
+
+
     default:
       return state;
   }
@@ -42,6 +47,10 @@ export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
 
+  useEffect(() => {
+    localStorage.setItem("my-app-data", JSON.stringify(state));
+  }, [state]);
+
   return (
     <AppContext.Provider
       value={{
@@ -49,8 +58,8 @@ export const AppProvider = ({ children }) => {
         expenses: state.expenses,
         dispatch,
       }}
-    >{children}</AppContext.Provider>
+    >
+      {children}
+    </AppContext.Provider>
   );
 };
-
-

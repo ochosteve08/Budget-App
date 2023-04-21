@@ -1,13 +1,12 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
+import "./App.css";
 import Title from "./Component/Title";
 import Budget from "./Component/Budget";
 import Remaining from "./Component/Remaining";
 import ExpenseTotal from "./Component/ExpenseTotal";
 import ExpenseList from "./Component/ExpenseList";
 import AddExpense from "./Component/AddExpense";
-import {AppProvider} from './Context/AppContext'
+import { AppProvider } from "./Context/AppContext";
 
 
 function App() {
@@ -38,8 +37,11 @@ function App() {
         <div className="row  mt-3">
           <AddExpense />
         </div>
+        
       </div>
+      
     </AppProvider>
+    
   );
 }
 
