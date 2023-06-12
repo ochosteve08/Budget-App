@@ -1,6 +1,7 @@
 import {React, useContext} from 'react'
 import {TiDelete} from 'react-icons/ti'
 import { AppContext } from '../Context/AppContext';
+import { toast } from "react-toastify";
 
 
 const ExpenseItem = ({id,name,cost}) => {
@@ -14,7 +15,9 @@ const ExpenseItem = ({id,name,cost}) => {
       payload: id,
 
     })
-
+     toast.success("expense successfully deleted", {
+       toastId: "delete",
+     });
   }
 
     

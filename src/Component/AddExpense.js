@@ -1,6 +1,7 @@
 import { React, useState, useContext } from "react";
 import { AppContext } from "../Context/AppContext";
 import { v4 as uuidv4 } from "uuid";
+import {toast} from 'react-toastify'
 
 const AddExpense = () => {
   const { dispatch } = useContext(AppContext);
@@ -21,11 +22,16 @@ const AddExpense = () => {
       type: "ADD EXPENSE",
       payload: expense,
     });
-
+   
     setName("");
     setCost("");
   };
 
+    const handleSuccess = () => {
+      toast.success("New expense added", {
+        toastId: "success1",
+      });
+    };
   return (
     <form onSubmit={onSubmit}>
       <div className="row mb-2">
@@ -58,7 +64,7 @@ const AddExpense = () => {
           />
         </div>
         <div className="col-8">
-          <button type="submit" className="btn btn-primary mt-3">
+          <button type="submit" className="btn btn-primary mt-3" onClick={handleSuccess}>
             Save
           </button>
         </div>

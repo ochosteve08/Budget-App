@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import { AppContext } from "../Context/AppContext";
-
+import { toast } from "react-toastify";
 
 const Remaining = () => {
   const { budget, expenses } = useContext(AppContext);
@@ -12,10 +12,15 @@ const Remaining = () => {
 
   if (totalExpense > budget) {
     alertType = "alert-danger";
+     toast.error("budget exceeded", {
+       toastId: "warning",
+     });
   
   }
   else {
     alertType = "alert-success";
+  
+    
   }
 
   return (
