@@ -7,6 +7,8 @@ import ExpenseTotal from "./Component/ExpenseTotal";
 import ExpenseList from "./Component/ExpenseList";
 import AddExpense from "./Component/AddExpense";
 import { AppProvider } from "./Context/AppContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
@@ -37,11 +39,21 @@ function App() {
         <div className="row  mt-3">
           <AddExpense />
         </div>
-        
       </div>
-      
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+     
+      />
     </AppProvider>
-    
   );
 }
 
