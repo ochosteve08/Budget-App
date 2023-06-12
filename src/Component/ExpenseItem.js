@@ -22,14 +22,22 @@ const ExpenseItem = ({id,name,cost}) => {
 
     
   return (
-    <li key={id} className="list-group-item  d-flex justify-content-between align-items-center mb-4 ">
+    <li
+      key={id}
+      className="list-group-item  d-flex justify-content-between align-items-center mb-4 "
+    >
       {name}
       <div>
-        <span className="badge bg-primary badge-pill m-2 mx-5">${cost}</span>
-        <TiDelete className="mx-3" onClick={handleDelete} size={"1.5rem"}></TiDelete>
+        <span className="badge bg-primary badge-pill m-2 p-2 mx-5">
+          ${cost}
+        </span>
+        <TiDelete
+          className="mx-3 custom-pointer "
+          onClick={handleDelete}
+          size={"2.5rem"}
+        ></TiDelete>
       </div>
     </li>
-    
   );
 }
 
